@@ -5,23 +5,23 @@ import { unsplashPhotos } from '../data/unsplashPhotos'
 const categories = ['All', 'Events', 'Facilities', 'Students', 'Sports', 'Arts', 'STEM', 'Community']
 
 const gallery = [
-  { category: 'Events', title: 'Graduation Ceremony', image: "/illustrations/community-day.svg", photo: 'campus', color: '#fbbf24' },
-  { category: 'Facilities', title: 'New Science Laboratory', image: "/illustrations/science-lab.svg", photo: 'classroom', color: '#7c3aed' },
-  { category: 'Students', title: 'Classroom Activities', image: "/illustrations/classroom.svg", photo: 'classroom', color: '#34d399' },
+  { category: 'Events', title: 'Graduation Ceremony', image: "/illustrations/community-day.svg", photo: 'campus', color: 'var(--gold)' },
+  { category: 'Facilities', title: 'New Science Laboratory', image: "/illustrations/science-lab.svg", photo: 'classroom', color: 'var(--accent)' },
+  { category: 'Students', title: 'Classroom Activities', image: "/illustrations/classroom.svg", photo: 'classroom', color: 'var(--accent)' },
   { category: 'Sports', title: 'Football Practice', image: "/illustrations/sports-field.svg", photo: 'field', color: '#ef4444' },
-  { category: 'Arts', title: 'Art Exhibition 2026', image: "/illustrations/arts-room.svg", photo: 'classroom', color: '#a855f7' },
-  { category: 'Events', title: 'Parents\' Day Celebration', image: "/illustrations/community-day.svg", photo: 'campus', color: '#fbbf24' },
-  { category: 'Facilities', title: 'School Library', image: "/illustrations/library.svg", photo: 'library', color: '#7c3aed' },
-  { category: 'Students', title: 'Computer Lab Session', image: "/illustrations/classroom.svg", photo: 'classroom', color: '#34d399' },
+  { category: 'Arts', title: 'Art Exhibition 2026', image: "/illustrations/arts-room.svg", photo: 'classroom', color: 'var(--accent)' },
+  { category: 'Events', title: 'Parents\' Day Celebration', image: "/illustrations/community-day.svg", photo: 'campus', color: 'var(--gold)' },
+  { category: 'Facilities', title: 'School Library', image: "/illustrations/library.svg", photo: 'library', color: 'var(--accent)' },
+  { category: 'Students', title: 'Computer Lab Session', image: "/illustrations/classroom.svg", photo: 'classroom', color: 'var(--accent)' },
   { category: 'Sports', title: 'Basketball Match', image: "/illustrations/sports-field.svg", photo: 'basketball', color: '#ef4444' },
-  { category: 'Arts', title: 'Drama Club Performance', image: "/illustrations/arts-room.svg", photo: 'classroom', color: '#a855f7' },
-  { category: 'Events', title: 'STEM Fair', image: "/illustrations/science-lab.svg", photo: 'classroom', color: '#fbbf24' },
-  { category: 'Facilities', title: 'Playground', image: "/illustrations/sports-field.svg", photo: 'field', color: '#7c3aed' },
-  { category: 'STEM', title: 'Robotics Workshop', image: "/illustrations/science-lab.svg", photo: 'classroom', color: '#06b6d4' },
-  { category: 'STEM', title: '3D Printing Lab', image: "/illustrations/science-lab.svg", photo: 'classroom', color: '#06b6d4' },
-  { category: 'Community', title: 'Community Service Day', image: "/illustrations/community-day.svg", photo: 'campus', color: '#10b981' },
-  { category: 'Community', title: 'PTA Fundraiser', image: "/illustrations/community-day.svg", photo: 'campus', color: '#10b981' },
-  { category: 'Students', title: 'Science Project', image: "/illustrations/science-lab.svg", photo: 'classroom', color: '#34d399' },
+  { category: 'Arts', title: 'Drama Club Performance', image: "/illustrations/arts-room.svg", photo: 'classroom', color: 'var(--accent)' },
+  { category: 'Events', title: 'STEM Fair', image: "/illustrations/science-lab.svg", photo: 'classroom', color: 'var(--gold)' },
+  { category: 'Facilities', title: 'Playground', image: "/illustrations/sports-field.svg", photo: 'field', color: 'var(--accent)' },
+  { category: 'STEM', title: 'Robotics Workshop', image: "/illustrations/science-lab.svg", photo: 'classroom', color: 'var(--sky)' },
+  { category: 'STEM', title: '3D Printing Lab', image: "/illustrations/science-lab.svg", photo: 'classroom', color: 'var(--sky)' },
+  { category: 'Community', title: 'Community Service Day', image: "/illustrations/community-day.svg", photo: 'campus', color: 'var(--accent)' },
+  { category: 'Community', title: 'PTA Fundraiser', image: "/illustrations/community-day.svg", photo: 'campus', color: 'var(--accent)' },
+  { category: 'Students', title: 'Science Project', image: "/illustrations/science-lab.svg", photo: 'classroom', color: 'var(--accent)' },
   { category: 'Sports', title: 'Athletics Day', image: "/illustrations/sports-field.svg", photo: 'field', color: '#ef4444' }
 ]
 
@@ -81,24 +81,24 @@ function PremiumGallery() {
 const styles = {
   container: { maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' },
   pageHeader: { textAlign: 'center', padding: '3rem 0 2rem' },
-  badge: { display: 'inline-block', background: '#fbbf24', color: '#1e1b4b', padding: '0.25rem 0.7rem', borderRadius: '2rem', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
-  pageTitle: { fontSize: '2.5rem', color: '#1e1b4b', marginBottom: '0.5rem' },
-  pageSubtitle: { fontSize: '1.15rem', color: '#64748b' },
+  badge: { display: 'inline-block', background: 'var(--gold)', color: 'var(--primary)', padding: '0.25rem 0.7rem', borderRadius: 'var(--radius-pill)', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
+  pageTitle: { fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  pageSubtitle: { fontSize: '1.15rem', color: 'var(--muted-foreground)' },
   filters: { marginBottom: '2rem', textAlign: 'center' },
   filterButtons: { display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' },
   filterBtn: {
-    padding: '0.5rem 1.25rem', border: '2px solid #e2e8f0', background: '#fff',
-    borderRadius: '2rem', fontSize: '0.9rem', cursor: 'pointer', color: '#475569'
+    padding: '0.5rem 1.25rem', border: '2px solid var(--border)', background: '#fff',
+    borderRadius: 'var(--radius-pill)', fontSize: '0.9rem', cursor: 'pointer', color: 'var(--muted-foreground)'
   },
-  filterBtnActive: { background: '#7c3aed', border: '2px solid #7c3aed', color: '#fff' },
+  filterBtnActive: { background: 'var(--accent)', border: '2px solid var(--accent)', color: '#fff' },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '2rem' },
-  galleryCard: { background: '#fff', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' },
+  galleryCard: { background: '#fff', borderRadius: 'var(--radius)', overflow: 'hidden', boxShadow: 'var(--shadow-card)' },
   thumbnail: { height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' },
   placeholderIcon: { fontSize: '2.5rem' },
-  caption: { padding: '0.75rem 0.75rem 0.25rem', fontSize: '0.92rem', color: '#334155', textAlign: 'center' },
-  categoryTag: { display: 'block', textAlign: 'center', padding: '0 0.75rem 0.75rem', fontSize: '0.78rem', color: '#64748b' },
+  caption: { padding: '0.75rem 0.75rem 0.25rem', fontSize: '0.92rem', color: 'var(--foreground)', textAlign: 'center' },
+  categoryTag: { display: 'block', textAlign: 'center', padding: '0 0.75rem 0.75rem', fontSize: '0.78rem', color: 'var(--muted-foreground)' },
   backNav: { textAlign: 'center', marginTop: '1rem' },
-  backLink: { color: '#7c3aed', textDecoration: 'none', fontWeight: 500 }
+  backLink: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }
 }
 
 export default PremiumGallery

@@ -1,234 +1,130 @@
 import { Link } from 'react-router-dom'
 import { unsplashPhotos } from '../data/unsplashPhotos'
+import PhotoCarousel from '../components/PhotoCarousel'
+import GoldMarquee from '../components/GoldMarquee'
+
+const heroPhotos = [
+  { ...unsplashPhotos.campus, alt: 'Students outside a school building' },
+  { ...unsplashPhotos.classroom, alt: 'A teacher presenting to students in a classroom' },
+  { ...unsplashPhotos.field, alt: 'Students watching a soccer game on the school field' },
+  { ...unsplashPhotos.library, alt: 'Students studying at tables in the library' },
+]
+
+const highlights = [
+  {
+    icon: '📚',
+    title: 'Strong Academics',
+    desc: 'An accredited curriculum delivered by experienced educators and modern teaching methods.',
+  },
+  {
+    icon: '🔬',
+    title: 'State-of-the-Art Facilities',
+    desc: 'Science labs, computer suites, sports fields, a library and a modern auditorium.',
+  },
+  {
+    icon: '🎨',
+    title: 'Rich Extracurriculars',
+    desc: 'Sports, music, drama, debate, robotics and community service programs.',
+  },
+  {
+    icon: '👨‍👩‍👧‍👦',
+    title: 'Active Community',
+    desc: 'A supportive parent-teacher association and regular community events.',
+  },
+]
 
 function StandardHome() {
   return (
-    <div style={styles.container} className="schoolweb-page">
-      <section style={styles.hero} className="schoolweb-hero">
+    <>
+      <GoldMarquee />
+      <div className="schoolweb-page">
+      <section className="schoolweb-hero">
         <div style={styles.heroContent}>
-          <h1 style={styles.heroTitle}>Welcome to Greenfield International School</h1>
-          <p style={styles.heroSubtitle}>
-            Empowering young minds for a brighter tomorrow since 1985
+          <span className="eyebrow">Est. 1985 · Nairobi, Kenya</span>
+          <h1>Welcome to Greenfield International School</h1>
+          <p>
+            Empowering young minds for a brighter tomorrow through a world-class,
+            values-led education for every student.
           </p>
-          <div style={styles.heroButtons}>
-            <Link className="schoolweb-button" to="/standard/academics" style={styles.primaryBtn}>Explore Academics</Link>
-            <Link className="schoolweb-button" to="/standard/contact" style={styles.secondaryBtn}>Contact Us</Link>
+          <div className="schoolweb-hero-actions" style={styles.heroButtons}>
+            <Link className="btn-gold" to="/standard/academics">Explore Academics</Link>
+            <Link className="btn-ghost" to="/standard/contact">Contact Us</Link>
           </div>
         </div>
         <div style={styles.heroImage}>
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.55rem' }}>
-            <img src={unsplashPhotos.campus.src} onError={event => { event.currentTarget.onerror = null; event.currentTarget.src = '/illustrations/campus.svg' }} alt="Students outside a school building" width="520" height="360" fetchPriority="high" style={{ width: '100%', maxWidth: '520px', height: 'auto', borderRadius: '16px' }} />
-            <a className="schoolweb-photo-credit" href={unsplashPhotos.campus.page} target="_blank" rel="noreferrer">Photo by {unsplashPhotos.campus.photographer} on Unsplash</a>
-          </div>
+          <PhotoCarousel
+            photos={heroPhotos}
+            alt="Students around the Greenfield campus"
+            fallback="/illustrations/campus.svg"
+          />
         </div>
       </section>
 
-      <section style={styles.aboutPreview} className="schoolweb-feature-panel">
+      <section className="schoolweb-feature-panel">
         <div style={styles.sectionContent}>
-          <h2 style={styles.sectionTitle}>About Our School</h2>
-          <p style={styles.paragraph}>
+          <span className="eyebrow">About our school</span>
+          <h2>Nurturing curious, capable, compassionate learners</h2>
+          <p className="body-large">
             Greenfield International School is a private K-12 institution committed to
-            academic excellence, character development, and inclusive learning.
-            We offer a well-rounded curriculum, modern facilities, and a supportive
-            community that prepares students for success in life.
+            academic excellence, character development and inclusive learning. We offer a
+            well-rounded curriculum, modern facilities and a supportive community that
+            prepares students for success in life.
           </p>
-          <Link to="/standard/about" style={styles.learnMore}>Learn More About Us →</Link>
+          <Link className="btn-outline" to="/standard/about">Learn More About Us</Link>
         </div>
       </section>
 
-      <section style={styles.highlights}>
-        <h2 style={styles.sectionTitle}>Why Choose Us</h2>
-        <div style={styles.highlightGrid}>
-          {[
-            {
-              icon: '📚',
-              title: 'Strong Academics',
-              desc: 'Accredited curriculum with experienced educators and modern teaching methods.'
-            },
-            {
-              icon: '🔬',
-              title: 'State-of-the-Art Facilities',
-              desc: 'Science labs, computer labs, sports fields, library, and a modern auditorium.'
-            },
-            {
-              icon: '🎨',
-              title: 'Rich Extracurriculars',
-              desc: 'Sports, music, drama, debate, robotics, and community service programs.'
-            },
-            {
-              icon: '👨‍👩‍👧‍👦',
-              title: 'Active Community',
-              desc: 'A supportive parent-teacher association and regular community events.'
-            }
-          ].map(item => (
-            <div key={item.title} style={styles.highlightCard}>
-              <div style={styles.highlightIcon}>{item.icon}</div>
-              <h3 style={styles.highlightTitle}>{item.title}</h3>
-              <p style={styles.highlightDesc}>{item.desc}</p>
-            </div>
+      <section>
+        <div style={styles.sectionHead}>
+          <span className="eyebrow eyebrow--center">Why families choose us</span>
+          <h2 style={styles.sectionTitle}>Why Choose Us</h2>
+        </div>
+        <div style={styles.cardGrid}>
+          {highlights.map(item => (
+            <article className="schoolweb-surface" key={item.title} style={styles.card}>
+              <div style={styles.cardIcon} aria-hidden="true">{item.icon}</div>
+              <h3 style={styles.cardTitle}>{item.title}</h3>
+              <p style={styles.cardDesc}>{item.desc}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section style={styles.cta} className="schoolweb-cta">
-        <h2 style={styles.ctaTitle}>Ready to Join Greenfield?</h2>
-        <p style={styles.ctaText}>
+      <section className="schoolweb-cta">
+        <span className="eyebrow eyebrow--center">Admissions open</span>
+        <h2>Ready to Join Greenfield?</h2>
+        <p>
           Admissions are now open for the upcoming academic year. Schedule a campus tour today.
         </p>
-        <Link className="schoolweb-button" to="/standard/contact" style={styles.ctaButton}>Apply for Admission</Link>
+        <Link className="schoolweb-button" to="/standard/contact">Apply for Admission</Link>
       </section>
     </div>
+    </>
   )
 }
 
 const styles = {
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 1rem'
-  },
-  hero: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    background: 'linear-gradient(135deg, #1e3a5f 0%, #2a5298 100%)',
-    color: '#fff',
-    padding: '5rem 2rem',
-    borderRadius: '12px',
-    marginBottom: '3rem',
-    gap: '2rem',
-    flexWrap: 'wrap'
-  },
-  heroContent: {
-    flex: '1 1 400px'
-  },
-  heroTitle: {
-    fontSize: '2.5rem',
-    marginBottom: '1rem',
-    fontWeight: 700
-  },
-  heroSubtitle: {
-    fontSize: '1.25rem',
-    opacity: 0.9,
-    marginBottom: '2rem'
-  },
-  heroButtons: {
-    display: 'flex',
-    gap: '1rem',
-    flexWrap: 'wrap'
-  },
-  primaryBtn: {
-    padding: '0.75rem 1.5rem',
-    background: '#fbbf24',
-    color: '#1e3a5f',
-    borderRadius: '8px',
-    fontWeight: 'bold',
-    textDecoration: 'none'
-  },
-  secondaryBtn: {
-    padding: '0.75rem 1.5rem',
-    border: '2px solid #fff',
-    color: '#fff',
-    borderRadius: '8px',
-    fontWeight: 'bold',
-    textDecoration: 'none'
-  },
+  heroContent: { flex: '1 1 380px' },
+  heroButtons: { display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '1.9rem' },
   heroImage: {
     flex: '1 1 300px',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '0.55rem',
   },
-  heroPlaceholder: {
-    fontSize: '6rem',
-    background: 'rgba(255,255,255,0.1)',
-    padding: '2rem',
-    borderRadius: '12px',
-    border: '2px solid rgba(255,255,255,0.3)'
-  },
-  aboutPreview: {
-    background: '#fff',
-    padding: '3rem',
-    borderRadius: '12px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-    marginBottom: '3rem'
-  },
-  sectionContent: {
-    maxWidth: '800px',
-    margin: '0 auto',
-    textAlign: 'center'
-  },
-  sectionTitle: {
-    fontSize: '2rem',
-    color: '#1e3a5f',
-    marginBottom: '1rem',
-    textAlign: 'center'
-  },
-  paragraph: {
-    fontSize: '1.1rem',
-    color: '#475569',
-    lineHeight: 1.8,
-    marginBottom: '1.5rem'
-  },
-  learnMore: {
-    color: '#2563eb',
-    fontWeight: 'bold',
-    textDecoration: 'none'
-  },
-  highlights: {
-    marginBottom: '3rem'
-  },
-  highlightGrid: {
+  sectionContent: { maxWidth: '720px', margin: '0 auto', textAlign: 'center' },
+  sectionHead: { textAlign: 'center', marginBottom: '2rem' },
+  sectionTitle: { fontSize: 'clamp(1.7rem, 3vw, 2.3rem)' },
+  cardGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '1.5rem'
+    gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+    gap: '1.35rem',
   },
-  highlightCard: {
-    background: '#fff',
-    padding: '2rem',
-    borderRadius: '12px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-    textAlign: 'center'
-  },
-  highlightIcon: {
-    fontSize: '3rem',
-    marginBottom: '1rem'
-  },
-  highlightTitle: {
-    fontSize: '1.25rem',
-    color: '#1e3a5f',
-    marginBottom: '0.5rem'
-  },
-  highlightDesc: {
-    color: '#475569',
-    fontSize: '0.95rem',
-    lineHeight: 1.6
-  },
-  cta: {
-    background: '#1e3a5f',
-    color: '#fff',
-    padding: '3rem 2rem',
-    borderRadius: '12px',
-    textAlign: 'center'
-  },
-  ctaTitle: {
-    fontSize: '2rem',
-    marginBottom: '1rem'
-  },
-  ctaText: {
-    fontSize: '1.1rem',
-    opacity: 0.9,
-    marginBottom: '2rem'
-  },
-  ctaButton: {
-    display: 'inline-block',
-    padding: '0.85rem 2rem',
-    background: '#fbbf24',
-    color: '#1e3a5f',
-    borderRadius: '8px',
-    fontWeight: 'bold',
-    textDecoration: 'none'
-  }
+  card: { textAlign: 'center' },
+  cardIcon: { fontSize: '2.4rem', marginBottom: '0.6rem' },
+  cardTitle: { fontSize: '1.2rem', marginBottom: '0.5rem' },
+  cardDesc: { fontSize: '0.95rem', lineHeight: 1.65 },
 }
 
 export default StandardHome

@@ -13,8 +13,8 @@ function NotFound() {
 
 const styles = {
   container: { maxWidth: '760px', margin: '0 auto', padding: '6rem 1rem', textAlign: 'center' },
-  code: { fontSize: '5rem', fontWeight: 800, margin: 0, color: '#1e3a5f' },
-  link: { display: 'inline-block', marginTop: '1.5rem', color: '#2563eb', fontWeight: 600 }
+  code: { fontSize: '5rem', fontWeight: 800, margin: 0, color: 'var(--primary)' },
+  link: { display: 'inline-block', marginTop: '1.5rem', color: 'var(--accent)', fontWeight: 600 }
 }
 
 export default NotFound

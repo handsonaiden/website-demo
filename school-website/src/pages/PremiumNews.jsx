@@ -106,25 +106,25 @@ function PremiumNews() {
 const styles = {
   container: { maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' },
   pageHeader: { textAlign: 'center', padding: '3rem 0 2rem' },
-  badge: { display: 'inline-block', background: '#fbbf24', color: '#1e1b4b', padding: '0.25rem 0.7rem', borderRadius: '2rem', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
-  pageTitle: { fontSize: '2.5rem', color: '#1e1b4b', marginBottom: '0.5rem' },
-  pageSubtitle: { fontSize: '1.15rem', color: '#64748b' },
+  badge: { display: 'inline-block', background: 'var(--gold)', color: 'var(--primary)', padding: '0.25rem 0.7rem', borderRadius: 'var(--radius-pill)', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
+  pageTitle: { fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  pageSubtitle: { fontSize: '1.15rem', color: 'var(--muted-foreground)' },
   featured: { marginBottom: '3rem' },
-  sectionTitle: { fontSize: '1.75rem', color: '#1e1b4b', textAlign: 'center', marginBottom: '1.5rem' },
+  sectionTitle: { fontSize: '1.75rem', color: 'var(--primary)', textAlign: 'center', marginBottom: '1.5rem' },
   featuredGrid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' },
-  featuredCard: { background: '#fff', padding: '2rem', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', borderLeft: '4px solid #fbbf24', display: 'flex', flexDirection: 'column' },
+  featuredCard: { background: '#fff', padding: '2rem', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-soft)', borderLeft: '4px solid var(--gold)', display: 'flex', flexDirection: 'column' },
   posts: { marginBottom: '2rem' },
   postGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' },
-  postCard: { background: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column' },
+  postCard: { background: '#fff', padding: '1.5rem', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)', display: 'flex', flexDirection: 'column' },
   postMeta: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', fontSize: '0.82rem' },
-  categoryBadge: { background: '#ede9fe', color: '#7c3aed', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: 'bold', fontSize: '0.75rem' },
-  postDate: { color: '#64748b' },
-  featuredTitle: { fontSize: '1.25rem', color: '#1e1b4b', marginBottom: '0.75rem', lineHeight: 1.4 },
-  postTitle: { fontSize: '1.1rem', color: '#1e1b4b', marginBottom: '0.75rem', lineHeight: 1.4 },
-  postExcerpt: { fontSize: '0.92rem', color: '#475569', lineHeight: 1.6, flex: 1, marginBottom: '1rem' },
-  readMore: { color: '#7c3aed', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.9rem', alignSelf: 'flex-start' },
+  categoryBadge: { background: 'color-mix(in oklab, var(--accent) 14%, #fff)', color: 'var(--accent)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: 'bold', fontSize: '0.75rem' },
+  postDate: { color: 'var(--muted-foreground)' },
+  featuredTitle: { fontSize: '1.25rem', color: 'var(--primary)', marginBottom: '0.75rem', lineHeight: 1.4 },
+  postTitle: { fontSize: '1.1rem', color: 'var(--primary)', marginBottom: '0.75rem', lineHeight: 1.4 },
+  postExcerpt: { fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6, flex: 1, marginBottom: '1rem' },
+  readMore: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.9rem', alignSelf: 'flex-start' },
   backNav: { textAlign: 'center', marginTop: '1rem' },
-  backLink: { color: '#7c3aed', textDecoration: 'none', fontWeight: 500 }
+  backLink: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }
 }
 
 export default PremiumNews

@@ -55,35 +55,35 @@ const styles = {
     textAlign: 'center',
     marginBottom: '3rem',
     paddingBottom: '2rem',
-    borderBottom: '2px solid #e2e8f0'
+    borderBottom: '2px solid var(--border)'
   },
   title: {
     fontSize: '2.5rem',
-    color: '#7c3aed',
+    color: 'var(--accent)',
     marginBottom: '0.5rem'
   },
   tagline: {
     fontSize: '1.5rem',
     fontStyle: 'italic',
-    color: '#64748b',
+    color: 'var(--muted-foreground)',
     marginBottom: '1rem'
   },
   description: {
-    color: '#475569',
+    color: 'var(--muted-foreground)',
     fontSize: '1.1rem'
   },
   content: {
     background: '#fff',
-    borderRadius: '8px',
+    borderRadius: 'var(--radius)',
     padding: '2rem',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.07)'
+    boxShadow: 'var(--shadow-card)'
   },
   section: {
     marginBottom: '2rem'
   },
   sectionTitle: {
     fontSize: '1.5rem',
-    color: '#1e293b',
+    color: 'var(--foreground)',
     marginBottom: '1rem'
   },
   checklist: {
@@ -91,23 +91,23 @@ const styles = {
   },
   checkItem: {
     padding: '0.5rem 0',
-    borderBottom: '1px solid #f1f5f9'
+    borderBottom: '1px solid var(--surface)'
   },
   infoBox: {
-    background: '#ede9fe',
+    background: 'color-mix(in oklab, var(--accent) 14%, #fff)',
     padding: '1rem',
-    borderRadius: '6px',
+    borderRadius: 'calc(var(--radius) - 0.25rem)',
     textAlign: 'center',
     fontSize: '1.25rem',
     fontWeight: 'bold',
-    color: '#6d28d9'
+    color: 'var(--primary-soft)'
   },
   actionBox: {
     marginTop: '2rem',
     textAlign: 'center'
   },
   backLink: {
-    color: '#7c3aed',
+    color: 'var(--accent)',
     fontSize: '1rem'
   }
 }

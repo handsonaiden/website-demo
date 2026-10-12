@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CmsPage from './components/CmsPage'
@@ -33,13 +33,56 @@ import StandardPricing from './pages/Standard'
 import PremiumPricing from './pages/Premium'
 import NotFound from './pages/NotFound'
 
-function RouteTitle() {
+function tierFor(pathname) {
+  if (pathname.startsWith('/basic')) return 'basic'
+  if (pathname.startsWith('/premium')) return 'premium'
+  return 'standard'
+}
+
+function RouteEffects() {
   const { pathname } = useLocation()
 
+  // Document title from the current route.
   useEffect(() => {
     const section = pathname.split('/').filter(Boolean).at(-1) || 'School website demo'
     const title = section.replace(/-/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase())
     document.title = `${title} | SchoolWeb`
+  }, [pathname])
+
+  // Every tier keeps its own identity through a single theme attribute.
+  useLayoutEffect(() => {
+    document.documentElement.setAttribute('data-tier', tierFor(pathname))
+  }, [pathname])
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [pathname])
+
+  // Reveal sections and cards as they enter the viewport.
+  useEffect(() => {
+    const targets = document.querySelectorAll(
+      '.schoolweb-page > section, .schoolweb-surface, .schoolweb-feature-panel, .cms-page-content'
+    )
+
+    if (typeof IntersectionObserver === 'undefined') {
+      targets.forEach(node => node.classList.add('is-visible'))
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    )
+
+    targets.forEach(node => observer.observe(node))
+    return () => observer.disconnect()
   }, [pathname])
 
   return null
@@ -48,9 +91,12 @@ function RouteTitle() {
 function App() {
   return (
     <BrowserRouter>
-      <RouteTitle />
+      <RouteEffects />
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Routes>
           <Route path="/" element={<Navigate to="/standard" replace />} />
           {/* Basic (Starter) package demo site */}

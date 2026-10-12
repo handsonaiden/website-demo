@@ -57,22 +57,22 @@ function PremiumStaff() {
 const styles = {
   container: { maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' },
   pageHeader: { textAlign: 'center', padding: '3rem 0 2rem' },
-  badge: { display: 'inline-block', background: '#fbbf24', color: '#1e1b4b', padding: '0.25rem 0.7rem', borderRadius: '2rem', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
-  pageTitle: { fontSize: '2.5rem', color: '#1e1b4b', marginBottom: '0.5rem' },
-  pageSubtitle: { fontSize: '1.15rem', color: '#64748b' },
+  badge: { display: 'inline-block', background: 'var(--gold)', color: 'var(--primary)', padding: '0.25rem 0.7rem', borderRadius: 'var(--radius-pill)', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
+  pageTitle: { fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  pageSubtitle: { fontSize: '1.15rem', color: 'var(--muted-foreground)' },
   staffList: { marginBottom: '2rem' },
-  sectionTitle: { fontSize: '1.75rem', color: '#1e1b4b', textAlign: 'center', marginBottom: '1.5rem' },
+  sectionTitle: { fontSize: '1.75rem', color: 'var(--primary)', textAlign: 'center', marginBottom: '1.5rem' },
   staffGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' },
-  staffCard: { background: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)', textAlign: 'center' },
-  staffAvatar: { width: '70px', height: '70px', borderRadius: '50%', background: 'linear-gradient(135deg, #1e1b4b, #7c3aed)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1rem', letterSpacing: '2px' },
-  staffName: { fontSize: '1rem', color: '#1e1b4b', marginBottom: '0.25rem' },
-  staffRole: { fontSize: '0.92rem', color: '#7c3aed', marginBottom: '0.25rem' },
-  staffDept: { fontSize: '0.82rem', color: '#64748b', marginBottom: '0.5rem' },
-  staffBio: { fontSize: '0.82rem', color: '#475569', lineHeight: 1.5, marginBottom: '1rem', fontStyle: 'italic' },
+  staffCard: { background: '#fff', padding: '1.5rem', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)', textAlign: 'center' },
+  staffAvatar: { width: '70px', height: '70px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--primary), var(--accent))', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1rem', letterSpacing: '2px' },
+  staffName: { fontSize: '1rem', color: 'var(--primary)', marginBottom: '0.25rem' },
+  staffRole: { fontSize: '0.92rem', color: 'var(--accent)', marginBottom: '0.25rem' },
+  staffDept: { fontSize: '0.82rem', color: 'var(--muted-foreground)', marginBottom: '0.5rem' },
+  staffBio: { fontSize: '0.82rem', color: 'var(--muted-foreground)', lineHeight: 1.5, marginBottom: '1rem', fontStyle: 'italic' },
   contactRow: { marginBottom: '0.3rem' },
-  contactLink: { fontSize: '0.85rem', color: '#475569', textDecoration: 'none', wordBreak: 'break-all' },
+  contactLink: { fontSize: '0.85rem', color: 'var(--muted-foreground)', textDecoration: 'none', wordBreak: 'break-all' },
   backNav: { textAlign: 'center', marginTop: '1rem' },
-  backLink: { color: '#7c3aed', textDecoration: 'none', fontWeight: 500 }
+  backLink: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }
 }
 
 export default PremiumStaff

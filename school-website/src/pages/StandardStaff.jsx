@@ -55,20 +55,20 @@ function StandardStaff() {
 const styles = {
   container: { maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' },
   pageHeader: { textAlign: 'center', padding: '3rem 0 2rem' },
-  pageTitle: { fontSize: '2.5rem', color: '#1e3a5f', marginBottom: '0.5rem' },
-  pageSubtitle: { fontSize: '1.15rem', color: '#64748b' },
+  pageTitle: { fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  pageSubtitle: { fontSize: '1.15rem', color: 'var(--muted-foreground)' },
   staffList: { marginBottom: '2rem' },
-  sectionTitle: { fontSize: '1.75rem', color: '#1e3a5f', textAlign: 'center', marginBottom: '1.5rem' },
+  sectionTitle: { fontSize: '1.75rem', color: 'var(--primary)', textAlign: 'center', marginBottom: '1.5rem' },
   staffGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' },
-  staffCard: { background: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)', textAlign: 'center' },
-  staffAvatar: { width: '70px', height: '70px', borderRadius: '50%', background: '#2563eb', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1rem', letterSpacing: '2px' },
-  staffName: { fontSize: '1rem', color: '#1e3a5f', marginBottom: '0.25rem' },
-  staffRole: { fontSize: '0.92rem', color: '#2563eb', marginBottom: '0.25rem' },
-  staffDept: { fontSize: '0.82rem', color: '#64748b', marginBottom: '1rem' },
+  staffCard: { background: '#fff', padding: '1.5rem', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)', textAlign: 'center' },
+  staffAvatar: { width: '70px', height: '70px', borderRadius: '50%', background: 'var(--accent)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1rem', letterSpacing: '2px' },
+  staffName: { fontSize: '1rem', color: 'var(--primary)', marginBottom: '0.25rem' },
+  staffRole: { fontSize: '0.92rem', color: 'var(--accent)', marginBottom: '0.25rem' },
+  staffDept: { fontSize: '0.82rem', color: 'var(--muted-foreground)', marginBottom: '1rem' },
   contactRow: { marginBottom: '0.3rem' },
-  contactLink: { fontSize: '0.85rem', color: '#475569', textDecoration: 'none', wordBreak: 'break-all' },
+  contactLink: { fontSize: '0.85rem', color: 'var(--muted-foreground)', textDecoration: 'none', wordBreak: 'break-all' },
   backNav: { textAlign: 'center', marginTop: '1rem' },
-  backLink: { color: '#2563eb', textDecoration: 'none', fontWeight: 500 }
+  backLink: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }
 }
 
 export default StandardStaff

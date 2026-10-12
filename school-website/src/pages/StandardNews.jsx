@@ -93,20 +93,20 @@ function StandardNews() {
 const styles = {
   container: { maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' },
   pageHeader: { textAlign: 'center', padding: '3rem 0 2rem' },
-  pageTitle: { fontSize: '2.5rem', color: '#1e3a5f', marginBottom: '0.5rem' },
-  pageSubtitle: { fontSize: '1.15rem', color: '#64748b' },
+  pageTitle: { fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  pageSubtitle: { fontSize: '1.15rem', color: 'var(--muted-foreground)' },
   posts: { marginBottom: '2rem' },
   postGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' },
-  postCard: { background: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column' },
+  postCard: { background: '#fff', padding: '1.5rem', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)', display: 'flex', flexDirection: 'column' },
   postMeta: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', fontSize: '0.82rem' },
-  categoryBadge: { background: '#dbeafe', color: '#2563eb', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: 'bold', fontSize: '0.75rem' },
-  postDate: { color: '#64748b' },
-  postTitle: { fontSize: '1.1rem', color: '#1e3a5f', marginBottom: '0.75rem', lineHeight: 1.4 },
-  postExcerpt: { fontSize: '0.92rem', color: '#475569', lineHeight: 1.6, flex: 1, marginBottom: '1rem' },
-  postImage: { width: '100%', maxHeight: '220px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' },
-  readMore: { color: '#2563eb', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.9rem', alignSelf: 'flex-start' },
+  categoryBadge: { background: 'color-mix(in oklab, var(--accent) 16%, #fff)', color: 'var(--accent)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: 'bold', fontSize: '0.75rem' },
+  postDate: { color: 'var(--muted-foreground)' },
+  postTitle: { fontSize: '1.1rem', color: 'var(--primary)', marginBottom: '0.75rem', lineHeight: 1.4 },
+  postExcerpt: { fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6, flex: 1, marginBottom: '1rem' },
+  postImage: { width: '100%', maxHeight: '220px', objectFit: 'cover', borderRadius: 'var(--radius)', marginBottom: '1rem' },
+  readMore: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.9rem', alignSelf: 'flex-start' },
   backNav: { textAlign: 'center', marginTop: '1rem' },
-  backLink: { color: '#2563eb', textDecoration: 'none', fontWeight: 500 }
+  backLink: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }
 }
 
 export default StandardNews

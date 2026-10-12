@@ -81,25 +81,25 @@ function PremiumAcademics() {
 const styles = {
   container: { maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' },
   pageHeader: { textAlign: 'center', padding: '3rem 0 2rem' },
-  badge: { display: 'inline-block', background: '#fbbf24', color: '#1e1b4b', padding: '0.25rem 0.7rem', borderRadius: '2rem', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
-  pageTitle: { fontSize: '2.5rem', color: '#1e1b4b', marginBottom: '0.5rem' },
-  pageSubtitle: { fontSize: '1.15rem', color: '#64748b' },
+  badge: { display: 'inline-block', background: 'var(--gold)', color: 'var(--primary)', padding: '0.25rem 0.7rem', borderRadius: 'var(--radius-pill)', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.75rem' },
+  pageTitle: { fontSize: '2.5rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  pageSubtitle: { fontSize: '1.15rem', color: 'var(--muted-foreground)' },
   levels: { marginBottom: '2.5rem' },
-  sectionTitle: { fontSize: '1.75rem', color: '#1e1b4b', textAlign: 'center', marginBottom: '1.5rem' },
+  sectionTitle: { fontSize: '1.75rem', color: 'var(--primary)', textAlign: 'center', marginBottom: '1.5rem' },
   levelGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' },
-  levelCard: { background: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' },
-  levelName: { fontSize: '1.1rem', color: '#7c3aed', marginBottom: '0.75rem', fontWeight: 600 },
-  levelDesc: { fontSize: '0.92rem', color: '#475569', lineHeight: 1.6, marginBottom: '1rem' },
+  levelCard: { background: '#fff', padding: '1.5rem', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-card)' },
+  levelName: { fontSize: '1.1rem', color: 'var(--accent)', marginBottom: '0.75rem', fontWeight: 600 },
+  levelDesc: { fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6, marginBottom: '1rem' },
   featureList: { listStyle: 'none', padding: 0, margin: 0 },
-  featureItem: { fontSize: '0.88rem', color: '#334155', padding: '0.2rem 0', borderBottom: '1px solid #f1f5f9' },
+  featureItem: { fontSize: '0.88rem', color: 'var(--foreground)', padding: '0.2rem 0', borderBottom: '1px solid var(--surface)' },
   programs: { marginBottom: '2.5rem' },
   programGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' },
-  programCard: { background: '#f5f3ff', padding: '1.25rem', borderRadius: '10px', borderLeft: '4px solid #7c3aed' },
+  programCard: { background: 'var(--surface)', padding: '1.25rem', borderRadius: 'var(--radius)', borderLeft: '4px solid var(--accent)' },
   programIcon: { fontSize: '1.5rem', marginBottom: '0.5rem' },
-  programName: { fontSize: '1.05rem', color: '#1e1b4b', marginBottom: '0.5rem' },
-  programDesc: { fontSize: '0.92rem', color: '#475569', lineHeight: 1.6 },
+  programName: { fontSize: '1.05rem', color: 'var(--primary)', marginBottom: '0.5rem' },
+  programDesc: { fontSize: '0.92rem', color: 'var(--muted-foreground)', lineHeight: 1.6 },
   backNav: { textAlign: 'center', marginTop: '1rem' },
-  backLink: { color: '#7c3aed', textDecoration: 'none', fontWeight: 500 }
+  backLink: { color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }
 }
 
 export default PremiumAcademics

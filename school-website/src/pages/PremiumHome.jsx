@@ -1,154 +1,189 @@
 import { Link } from 'react-router-dom'
 import { unsplashPhotos } from '../data/unsplashPhotos'
+import PhotoCarousel from '../components/PhotoCarousel'
+import GoldMarquee from '../components/GoldMarquee'
+
+const heroPhotos = [
+  { ...unsplashPhotos.campus, alt: 'Students outside a school building' },
+  { ...unsplashPhotos.classroom, alt: 'A teacher presenting to students in a classroom' },
+  { ...unsplashPhotos.field, alt: 'Students watching a soccer game on the school field' },
+  { ...unsplashPhotos.basketball, alt: 'Students practising on the school basketball court' },
+  { ...unsplashPhotos.library, alt: 'Students studying at tables in the library' },
+]
+
+const stats = [
+  { number: '800+', label: 'Students' },
+  { number: '60+', label: 'Teachers' },
+  { number: '40+', label: 'Years' },
+  { number: '98%', label: 'Pass Rate' },
+]
+
+const highlights = [
+  { icon: '📚', title: 'Strong Academics', desc: 'An accredited curriculum led by experienced educators and modern teaching methods.' },
+  { icon: '🔬', title: 'State-of-the-Art Facilities', desc: 'Science labs, computer suites, sports fields, a library and a modern auditorium.' },
+  { icon: '🎨', title: 'Rich Extracurriculars', desc: 'Sports, music, drama, debate, robotics and community service programs.' },
+  { icon: '👨‍👩‍👧‍👦', title: 'Active Community', desc: 'A supportive parent-teacher association and regular community events.' },
+  { icon: '🌐', title: 'Multi-Language Support', desc: 'English, French and Swahili programs for genuine global preparedness.' },
+  { icon: '💻', title: 'Digital Learning', desc: 'One-to-one device programs, an online portal and virtual classrooms.' },
+]
+
+const events = [
+  { date: 'Oct 17', title: 'Annual Sports Day', time: '9:00 AM' },
+  { date: 'Oct 24', title: 'Open Day & Campus Tour', time: '5:00 PM' },
+  { date: 'Nov 7', title: 'STEM Fair 2026', time: '9:00 AM' },
+]
 
 function PremiumHome() {
   return (
-    <div style={styles.container} className="schoolweb-page">
-      <section style={styles.hero} className="schoolweb-hero">
+    <>
+      <GoldMarquee />
+      <div className="schoolweb-page">
+      <section className="schoolweb-hero">
         <div style={styles.heroContent}>
-          <span style={styles.badge}>⭐ Premium Experience</span>
-          <h1 style={styles.heroTitle}>Welcome to Greenfield International School</h1>
-          <p style={styles.heroSubtitle}>
-            Empowering young minds for a brighter tomorrow since 1985
+          <span className="eyebrow">Premium experience · Estate 1985</span>
+          <h1>Welcome to Greenfield International School</h1>
+          <p>
+            A future-ready international education, blending academic excellence with
+            character, creativity and global citizenship.
           </p>
-          <div style={styles.heroButtons}>
-            <Link className="schoolweb-button" to="/premium/academics" style={styles.primaryBtn}>Explore Academics</Link>
-            <Link className="schoolweb-button" to="/premium/contact" style={styles.secondaryBtn}>Contact Us</Link>
+          <div className="schoolweb-hero-actions" style={styles.heroButtons}>
+            <Link className="btn-gold" to="/premium/academics">Explore Academics</Link>
+            <Link className="btn-ghost" to="/premium/contact">Contact Us</Link>
           </div>
         </div>
         <div style={styles.heroImage}>
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.55rem' }}>
-            <img src={unsplashPhotos.campus.src} onError={event => { event.currentTarget.onerror = null; event.currentTarget.src = '/illustrations/campus.svg' }} alt="Students outside a school building" width="520" height="360" fetchPriority="high" style={{ width: '100%', maxWidth: '520px', height: 'auto', borderRadius: '16px' }} />
-            <a className="schoolweb-photo-credit" href={unsplashPhotos.campus.page} target="_blank" rel="noreferrer">Photo by {unsplashPhotos.campus.photographer} on Unsplash</a>
-          </div>
+          <PhotoCarousel
+            photos={heroPhotos}
+            alt="Students around the Greenfield campus"
+            fallback="/illustrations/campus.svg"
+          />
         </div>
       </section>
 
-      <section style={styles.stats} className="schoolweb-responsive-4">
-        {[
-          { number: '800+', label: 'Students' },
-          { number: '60+', label: 'Teachers' },
-          { number: '40+', label: 'Years' },
-          { number: '98%', label: 'Pass Rate' }
-        ].map(stat => (
-          <div key={stat.label} style={styles.statCard}>
+      <section className="schoolweb-responsive-4" style={styles.stats}>
+        {stats.map(stat => (
+          <div className="schoolweb-surface" key={stat.label} style={styles.statCard}>
             <div style={styles.statNumber}>{stat.number}</div>
             <div style={styles.statLabel}>{stat.label}</div>
           </div>
         ))}
       </section>
 
-      <section style={styles.aboutPreview} className="schoolweb-feature-panel">
+      <section className="schoolweb-feature-panel">
         <div style={styles.sectionContent}>
-          <h2 style={styles.sectionTitle}>About Our School</h2>
-          <p style={styles.paragraph}>
+          <span className="eyebrow">About our school</span>
+          <h2>An education designed for a changing world</h2>
+          <p className="body-large">
             Greenfield International School is a private K-12 institution committed to
-            academic excellence, character development, and inclusive learning.
-            We offer a well-rounded curriculum, modern facilities, and a supportive
-            community that prepares students for success in life.
+            academic excellence, character development and inclusive learning. We offer a
+            well-rounded curriculum, modern facilities and a supportive community that
+            prepares students for success in life.
           </p>
-          <Link to="/premium/about" style={styles.learnMore}>Learn More About Us →</Link>
+          <Link className="btn-outline" to="/premium/about">Learn More About Us</Link>
         </div>
       </section>
 
-      <section style={styles.highlights}>
-        <h2 style={styles.sectionTitle}>Why Choose Us</h2>
-        <div style={styles.highlightGrid}>
-          {[
-            { icon: '📚', title: 'Strong Academics', desc: 'Accredited curriculum with experienced educators and modern teaching methods.' },
-            { icon: '🔬', title: 'State-of-the-Art Facilities', desc: 'Science labs, computer labs, sports fields, library, and a modern auditorium.' },
-            { icon: '🎨', title: 'Rich Extracurriculars', desc: 'Sports, music, drama, debate, robotics, and community service programs.' },
-            { icon: '👨‍👩‍👧‍👦', title: 'Active Community', desc: 'A supportive parent-teacher association and regular community events.' },
-            { icon: '🌐', title: 'Multi-Language Support', desc: 'English, French, and Swahili programs for global preparedness.' },
-            { icon: '💻', title: 'Digital Learning', desc: 'One-to-one device programs, online portal, and virtual classrooms.' }
-          ].map(item => (
-            <div key={item.title} style={styles.highlightCard}>
-              <div style={styles.highlightIcon}>{item.icon}</div>
-              <h3 style={styles.highlightTitle}>{item.title}</h3>
-              <p style={styles.highlightDesc}>{item.desc}</p>
-            </div>
+      <section>
+        <div style={styles.sectionHead}>
+          <span className="eyebrow eyebrow--center">Why families choose us</span>
+          <h2 style={styles.sectionTitle}>Why Choose Us</h2>
+        </div>
+        <div style={styles.cardGrid}>
+          {highlights.map(item => (
+            <article className="schoolweb-surface" key={item.title} style={styles.card}>
+              <div style={styles.cardIcon} aria-hidden="true">{item.icon}</div>
+              <h3 style={styles.cardTitle}>{item.title}</h3>
+              <p style={styles.cardDesc}>{item.desc}</p>
+            </article>
           ))}
         </div>
       </section>
 
       <section style={styles.events}>
-        <h2 style={styles.sectionTitle}>Upcoming Events</h2>
+        <div style={styles.sectionHead}>
+          <span className="eyebrow eyebrow--center">Save the date</span>
+          <h2 style={styles.sectionTitle}>Upcoming Events</h2>
+        </div>
         <div style={styles.eventsList}>
-          {[
-            { date: 'Oct 17', title: 'Annual Sports Day', time: '9:00 AM' },
-            { date: 'Oct 24', title: 'Open Day & Campus Tour', time: '5:00 PM' },
-            { date: 'Nov 7', title: 'STEM Fair 2026', time: '9:00 AM' }
-          ].map(event => (
-            <div key={event.title} style={styles.eventItem}>
+          {events.map(event => (
+            <div className="schoolweb-surface" key={event.title} style={styles.eventItem}>
               <div style={styles.eventDate}>{event.date}</div>
-              <div style={styles.eventInfo}>
-                <h4 style={styles.eventTitle}>{event.title}</h4>
+              <div>
+                <h3 style={styles.eventTitle}>{event.title}</h3>
                 <p style={styles.eventTime}>🕐 {event.time}</p>
               </div>
             </div>
           ))}
         </div>
-        <Link to="/premium/events" style={styles.viewAll}>View All Events →</Link>
+        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <Link className="btn-outline" to="/premium/events">View All Events</Link>
+        </div>
       </section>
 
-      <section style={styles.cta} className="schoolweb-cta">
-        <h2 style={styles.ctaTitle}>Ready to Join Greenfield?</h2>
-        <p style={styles.ctaText}>
+      <section className="schoolweb-cta">
+        <span className="eyebrow eyebrow--center">Admissions open</span>
+        <h2>Ready to Join Greenfield?</h2>
+        <p>
           Admissions are now open for the upcoming academic year. Schedule a campus tour today.
         </p>
-        <Link className="schoolweb-button" to="/premium/contact" style={styles.ctaButton}>Apply for Admission</Link>
+        <Link className="schoolweb-button" to="/premium/contact">Apply for Admission</Link>
       </section>
     </div>
+    </>
   )
 }
 
 const styles = {
-  container: { maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' },
-  hero: {
-    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-    background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #7c3aed 100%)',
-    color: '#fff', padding: '5rem 2rem', borderRadius: '12px', marginBottom: '2rem', gap: '2rem', flexWrap: 'wrap'
+  heroContent: { flex: '1 1 380px' },
+  heroButtons: { display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '1.9rem' },
+  heroImage: {
+    flex: '1 1 300px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '0.55rem',
   },
-  badge: {
-    display: 'inline-block', background: '#fbbf24', color: '#1e1b4b', padding: '0.3rem 0.8rem',
-    borderRadius: '2rem', fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '1rem'
+  stats: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+    gap: '1.25rem',
   },
-  heroContent: { flex: '1 1 400px' },
-  heroTitle: { fontSize: '2.5rem', marginBottom: '1rem', fontWeight: 700 },
-  heroSubtitle: { fontSize: '1.25rem', opacity: 0.9, marginBottom: '2rem' },
-  heroButtons: { display: 'flex', gap: '1rem', flexWrap: 'wrap' },
-  primaryBtn: { padding: '0.75rem 1.5rem', background: '#fbbf24', color: '#1e1b4b', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none' },
-  secondaryBtn: { padding: '0.75rem 1.5rem', border: '2px solid #fff', color: '#fff', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none' },
-  heroImage: { flex: '1 1 300px', display: 'flex', justifyContent: 'center', alignItems: 'center' },
-  heroPlaceholder: { fontSize: '6rem', background: 'rgba(255,255,255,0.1)', padding: '2rem', borderRadius: '12px', border: '2px solid rgba(255,255,255,0.3)' },
-  heroIcon: {},
-  stats: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' },
-  statCard: { background: '#fff', padding: '1.5rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' },
-  statNumber: { fontSize: '2rem', fontWeight: 'bold', color: '#7c3aed' },
-  statLabel: { fontSize: '0.9rem', color: '#64748b', marginTop: '0.25rem' },
-  aboutPreview: { background: '#fff', padding: '3rem', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)', marginBottom: '3rem' },
-  sectionContent: { maxWidth: '800px', margin: '0 auto', textAlign: 'center' },
-  sectionTitle: { fontSize: '2rem', color: '#1e1b4b', marginBottom: '1rem', textAlign: 'center' },
-  paragraph: { fontSize: '1.1rem', color: '#475569', lineHeight: 1.8, marginBottom: '1.5rem' },
-  learnMore: { color: '#7c3aed', fontWeight: 'bold', textDecoration: 'none' },
-  highlights: { marginBottom: '3rem' },
-  highlightGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' },
-  highlightCard: { background: '#fff', padding: '2rem', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)', textAlign: 'center' },
-  highlightIcon: { fontSize: '3rem', marginBottom: '1rem' },
-  highlightTitle: { fontSize: '1.25rem', color: '#1e1b4b', marginBottom: '0.5rem' },
-  highlightDesc: { color: '#475569', fontSize: '0.95rem', lineHeight: 1.6 },
-  events: { marginBottom: '3rem' },
-  eventsList: { display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1rem' },
-  eventItem: { display: 'flex', alignItems: 'center', gap: '1.5rem', background: '#fff', padding: '1.25rem 1.5rem', borderRadius: '10px', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' },
-  eventDate: { background: '#1e1b4b', color: '#fff', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.9rem', minWidth: '70px', textAlign: 'center' },
-  eventInfo: { flex: 1 },
-  eventTitle: { fontSize: '1rem', color: '#1e1b4b', marginBottom: '0.25rem' },
-  eventTime: { fontSize: '0.85rem', color: '#64748b' },
-  viewAll: { color: '#7c3aed', fontWeight: 'bold', textDecoration: 'none' },
-  cta: { background: 'linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%)', color: '#fff', padding: '3rem 2rem', borderRadius: '12px', textAlign: 'center' },
-  ctaTitle: { fontSize: '2rem', marginBottom: '1rem' },
-  ctaText: { fontSize: '1.1rem', opacity: 0.9, marginBottom: '2rem' },
-  ctaButton: { display: 'inline-block', padding: '0.85rem 2rem', background: '#fbbf24', color: '#1e1b4b', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none' }
+  statCard: { textAlign: 'center', padding: '1.5rem 1rem' },
+  statNumber: {
+    fontFamily: 'var(--font-display)',
+    fontSize: '2.1rem',
+    fontWeight: 700,
+    color: 'var(--primary)',
+  },
+  statLabel: { marginTop: '0.25rem', fontSize: '0.85rem', letterSpacing: '0.06em', textTransform: 'uppercase' },
+  sectionContent: { maxWidth: '720px', margin: '0 auto', textAlign: 'center' },
+  sectionHead: { textAlign: 'center', marginBottom: '2rem' },
+  sectionTitle: { fontSize: 'clamp(1.7rem, 3vw, 2.3rem)' },
+  cardGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '1.35rem',
+  },
+  card: { textAlign: 'center' },
+  cardIcon: { fontSize: '2.4rem', marginBottom: '0.6rem' },
+  cardTitle: { fontSize: '1.15rem', marginBottom: '0.5rem' },
+  cardDesc: { fontSize: '0.95rem', lineHeight: 1.65 },
+  events: {},
+  eventsList: { display: 'flex', flexDirection: 'column', gap: '1rem' },
+  eventItem: { display: 'flex', alignItems: 'center', gap: '1.4rem', padding: '1.1rem 1.4rem' },
+  eventDate: {
+    padding: '0.5rem 0.9rem',
+    borderRadius: 'var(--radius)',
+    fontFamily: 'var(--font-button)',
+    fontWeight: 600,
+    fontSize: '0.85rem',
+    color: 'var(--primary-foreground)',
+    background: 'var(--primary)',
+    minWidth: '72px',
+    textAlign: 'center',
+  },
+  eventTitle: { fontSize: '1.05rem', marginBottom: '0.25rem' },
+  eventTime: { fontSize: '0.85rem' },
 }
 
 export default PremiumHome
